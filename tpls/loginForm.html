@@ -2,18 +2,18 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center">图书管理系统</h2>
+                <h2 class="text-center">BookStore</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" name="loginForm" ng-controller="BookLoginCtrl">
                     <div class="form-group">
                         <label class="col-md-2 control-label">
                             用户名：
                         </label>
                         <div class="col-md-10">
-                            <input type="email" class="form-control" placeholder="推荐使用126邮箱" ng-model="userInfo.email">
+                            <input name="username" type="text" class="form-control" placeholder="请输入用户名邮箱" ng-model="username">
                         </div>
                     </div>
                     <div class="form-group">
@@ -21,13 +21,17 @@
                             密码：
                         </label>
                         <div class="col-md-10">
-                            <input type="password" class="form-control" placeholder="只能是数字、字母、下划线" ng-model="userInfo.password">
+                            <input name="password" type="password" class="form-control" placeholder="请输入密码" ng-model="password">
                         </div>
+                    </div>
+                    <div class="form-group" ng-if="warning.tip">
+                        <label class="col-md-2"></label>
+                        <div class="col-md-10 error_tip">{{warning.infor}}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <a ui-sref="booklist({bookType:0})" class="btn btn-success btn-lg">登录</a>
-                            <button class="btn btn-default btn-lg" ng-click="setFormData()">注册</button>
+                            <button class="btn btn-primary btn-lg" ng-click="login()">登录</button>
+                            <button class="btn btn-default btn-lg" ng-click="register()">注册</button>
                         </div>
                     </div>
                 </form>
