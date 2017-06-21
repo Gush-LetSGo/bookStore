@@ -137,7 +137,12 @@ bookLoginModule.controller("BookLoginCtrl",function($scope, $http){
         if($scope.username && $scope.password){
             $http.get('./data/admin.json')
                 .success(function(largeLoad) {
-                    largeLoad.username
+                    if(largeLoad[0].username==$scope.username && largeLoad[0].password==$scope.password){
+                        
+                    }else{
+                        $scope.warning.tip=true;
+                        $scope.warning.infor="用户名或密码错误！"
+                    }
                 });
         }else{
             $scope.warning.tip=true;
