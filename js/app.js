@@ -34,9 +34,21 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('register', {
+        .state('index.register', {
             url: '/register',
-            templateUrl: 'tpls/registerForm.html'
+            'views':{
+                'main':{
+                    templateUrl: 'tpls/registerForm.html'
+                }
+            }
+        })
+        .state('index.login', {
+            url: '/login',
+            'views':{
+                'main':{
+                    templateUrl: 'tpls/loginForm.html'
+                }
+            }
         })
         .state('booklist', {
             url: '/{bookType:[0-9]{1,4}}',
@@ -61,3 +73,23 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'tpls/bookDetail.html'
         })
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
