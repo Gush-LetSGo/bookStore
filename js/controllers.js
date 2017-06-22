@@ -128,7 +128,7 @@ bookDetailModule.controller('BookDetailCtrl', function($scope, $http, $state, $s
  * @type {[type]}
  */
 var bookLoginModule=angular.module("BookLoginModule",[]);
-bookLoginModule.controller("BookLoginCtrl",function($scope, $http){
+bookLoginModule.controller("BookLoginCtrl",function($scope, $http, $state){
     $scope.warning={
         'tip':false,
         'infor':''
@@ -138,7 +138,7 @@ bookLoginModule.controller("BookLoginCtrl",function($scope, $http){
             $http.get('./data/admin.json')
                 .success(function(largeLoad) {
                     if(largeLoad[0].username==$scope.username && largeLoad[0].password==$scope.password){
-                        
+                        $state.go('booklist',({bookType:0}));
                     }else{
                         $scope.warning.tip=true;
                         $scope.warning.infor="用户名或密码错误！"
