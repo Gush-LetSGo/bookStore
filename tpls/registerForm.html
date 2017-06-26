@@ -7,46 +7,58 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form class="form-horizontal" role="form" name="loginForm" ng-controller="BookLoginCtrl">
+                <form class="form-horizontal" role="form" name="registerForm" ng-controller="BookRegisterCtrl">
                     <div class="form-group">
                         <label class="col-md-2 control-label">
                             用户名：
                         </label>
                         <div class="col-md-10">
-                            <input name="username" type="text" class="form-control" placeholder="请输入用户名邮箱" ng-model="username" ng-keydown="hideTip()">
+                            <input name="username" type="text" class="form-control" placeholder="请输入3~10位英文字母(不包括标点符号)" ng-model="userinfor.adminname" ng-keydown="hideTip1()">
                         </div>
+                    </div>
+                    <div class="form-group" ng-if="warning.tip1">
+                        <label class="col-md-2"></label>
+                        <div class="col-md-10 error_tip">{{warning.adminname}}</div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label">
                             密码：
                         </label>
                         <div class="col-md-10">
-                            <input name="password" type="password" class="form-control" placeholder="请输入密码" ng-model="password" ng-keydown="hideTip()">
+                            <input name="password" type="password" class="form-control" placeholder="请输入3~10位由英文字母、数字、标点组成的密码" ng-model="userinfor.code" ng-keydown="hideTip()">
                         </div>
+                    </div>
+                    <div class="form-group" ng-if="warning.tip2">
+                        <label class="col-md-2"></label>
+                        <div class="col-md-10 error_tip">{{warning.code}}</div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label">
                             确认密码：
                         </label>
                         <div class="col-md-10">
-                            <input name="confirm" type="password" class="form-control" placeholder="确认密码" ng-model="confirm" ng-keydown="hideTip()">
+                            <input name="confirm" type="password" class="form-control" placeholder="确认密码" ng-model="userinfor.confirm" ng-keydown="hideTip()">
                         </div>
+                    </div>
+                    <div class="form-group" ng-if="warning.tip3">
+                        <label class="col-md-2"></label>
+                        <div class="col-md-10 error_tip">{{warning.confirm}}</div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label">
                             邮箱：
                         </label>
                         <div class="col-md-10">
-                            <input name="email" type="email" class="form-control" placeholder="请输入邮箱" ng-model="email" ng-keydown="hideTip()">
+                            <input name="email" type="email" class="form-control" placeholder="请输入你的QQ邮箱" ng-model="userinfor.email" ng-keydown="hideTip()">
                         </div>
                     </div>
-                    <div class="form-group" ng-if="warning.tip">
+                    <div class="form-group" ng-if="warning.tip4">
                         <label class="col-md-2"></label>
-                        <div class="col-md-10 error_tip">{{warning.infor}}</div>
+                        <div class="col-md-10 error_tip">{{warning.email}}</div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <button class="btn btn-success btn-lg">确认注册</button>
+                            <button ng-click="register()" class="btn btn-success btn-lg">确认注册</button>
                             <button class="btn btn-primary btn-lg"  ui-sref="index.login">返回登录</button>
                         </div>
                     </div>

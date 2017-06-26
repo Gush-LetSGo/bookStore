@@ -155,6 +155,49 @@ bookLoginModule.controller("BookLoginCtrl",function($scope, $http, $state, $stat
     }
 })
 
+/**
+ * 这里是注册模块
+ * @type {[type]}
+ */
+var bookRegisterModule=angular.module("BookRegisterModule",[]);
+bookRegisterModule.controller("BookRegisterCtrl",function($scope, $http, $state, $stateParams){
+    $scope.reg={
+        'adminname':'',
+        'code':'',
+        'email':''
+    }
+    $scope.register=function(){
+        if(!reg.adminname.test($scope.userinfor.adminname)){
+            $scope.warning.adminname='请输入合法用户名';
+            $scope.warning.tip1=true;
+        };
+        if(!reg.code.test($scope.userinfor.code)){
+            $scope.warning.code='请按要求设置密码';
+            $scope.warning.tip2=true;
+        };
+        if($scope.userinfor.code==$scope.userinfor.confirm){
+            $scope.warning.confirm='密码输入不一致';
+            $scope.warning.tip3=true;
+        };
+        if(!reg.email.test($scope.userinfor.email)){
+            $scope.warning.email='请输入QQ邮箱';
+            $scope.warning.tip4=true;
+        };
+    }
+    $scope.hideTip1=function(){
+        $scope.warning.tip1=false;
+    }
+    $scope.hideTip2=function(){
+        $scope.warning.tip2=false;
+    }
+    $scope.hideTip3=function(){
+        $scope.warning.tip3=false;
+    }
+    $scope.hideTip4=function(){
+        $scope.warning.tip4=false;
+    }
+})
+
 
 
 
