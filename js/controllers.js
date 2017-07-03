@@ -162,7 +162,7 @@ bookLoginModule.controller("BookLoginCtrl",function($scope, $http, $state, $stat
 var bookRegisterModule=angular.module("BookRegisterModule",[]);
 bookRegisterModule.controller("BookRegisterCtrl",function($scope, $http, $state, $stateParams){
     $scope.reg={
-        'adminname':'',
+        'adminname':'/[a-zA-Z]{3,10}/',
         'code':'',
         'email':''
     }
