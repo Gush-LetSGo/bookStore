@@ -25,7 +25,7 @@
                             密码：
                         </label>
                         <div class="col-md-10">
-                            <input name="password" type="password" class="form-control" placeholder="请输入3~10位由英文字母、数字、标点组成的密码" ng-model="userinfor.code" ng-keydown="hideTip()">
+                            <input name="password" type="password" class="form-control" placeholder="请设置3~10位的密码,可以由英文字母、数字、标点组成" ng-model="userinfor.code" ng-keydown="hideTip2()">
                         </div>
                     </div>
                     <div class="form-group" ng-if="warning.tip2">
@@ -37,7 +37,7 @@
                             确认密码：
                         </label>
                         <div class="col-md-10">
-                            <input name="confirm" type="password" class="form-control" placeholder="确认密码" ng-model="userinfor.confirm" ng-keydown="hideTip()">
+                            <input name="confirm" type="password" class="form-control" placeholder="确认密码" ng-model="userinfor.confirm" ng-keydown="hideTip3()">
                         </div>
                     </div>
                     <div class="form-group" ng-if="warning.tip3">
@@ -49,7 +49,7 @@
                             邮箱：
                         </label>
                         <div class="col-md-10">
-                            <input name="email" type="email" class="form-control" placeholder="请输入你的QQ邮箱" ng-model="userinfor.email" ng-keydown="hideTip()">
+                            <input name="email" type="email" class="form-control" placeholder="请输入您的QQ邮箱" ng-model="userinfor.email" ng-keydown="hideTip4()">
                         </div>
                     </div>
                     <div class="form-group" ng-if="warning.tip4">

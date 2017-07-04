@@ -161,34 +161,49 @@ bookLoginModule.controller("BookLoginCtrl",function($scope, $http, $state, $stat
  */
 var bookRegisterModule=angular.module("BookRegisterModule",[]);
 bookRegisterModule.controller("BookRegisterCtrl",function($scope, $http, $state, $stateParams){
-    $scope.reg={
-        'adminname':'/[a-zA-Z]{3,10}/',
+    $scope.warning={
+        'tip1':'',
+        'tip2':'',
+        'tip3':'',
+        'tip4':'',
+        'adminname':'',
         'code':'',
-        'email':''
+        'confirm':'',
+        'email':'',
+    }
+    $scope.reg={
+        'adminname':/[a-zA-Z]{3,10}/,
+        'code':/\S{4,9}/,
+        'email':/[1-9][0-9]{5,12}@qq\.com/
     }
     $scope.register=function(){
-        if(!reg.adminname.test($scope.userinfor.adminname)){
+        if(!$scope.reg.adminname.test($scope.userinfor.adminname)){
             $scope.warning.adminname='请输入合法用户名';
             $scope.warning.tip1=true;
         };
-        if(!reg.code.test($scope.userinfor.code)){
+        if(!$scope.reg.code.test($scope.userinfor.code)){
             $scope.warning.code='请按要求设置密码';
             $scope.warning.tip2=true;
         };
-        if($scope.userinfor.code==$scope.userinfor.confirm){
+        if($scope.userinfor.code!=$scope.userinfor.confirm){
             $scope.warning.confirm='密码输入不一致';
             $scope.warning.tip3=true;
         };
-        if(!reg.email.test($scope.userinfor.email)){
-            $scope.warning.email='请输入QQ邮箱';
+        if(!$scope.reg.email.test($scope.userinfor.email)){
+            $scope.warning.email='请输入您的QQ邮箱';
             $scope.warning.tip4=true;
         };
+        if($scope.warning.tip1==false&&$scope.warning.tip2==false&&$scope.warning.tip3==false&&$scope.warning.tip4==false){
+            alert("恭喜注册成功!");
+            $state.go('index.login');
+        }
     }
     $scope.hideTip1=function(){
         $scope.warning.tip1=false;
     }
     $scope.hideTip2=function(){
         $scope.warning.tip2=false;
+        $scope.warning.tip3=false;
     }
     $scope.hideTip3=function(){
         $scope.warning.tip3=false;
