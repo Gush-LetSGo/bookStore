@@ -161,6 +161,12 @@ bookLoginModule.controller("BookLoginCtrl",function($scope, $http, $state, $stat
  */
 var bookRegisterModule=angular.module("BookRegisterModule",[]);
 bookRegisterModule.controller("BookRegisterCtrl",function($scope, $http, $state, $stateParams){
+    $scope.userinfor={
+        'adminname':'',
+        'code':'',
+        'confirm':'',
+        'email':'',
+    }
     $scope.warning={
         'tip1':'',
         'tip2':'',
@@ -176,6 +182,7 @@ bookRegisterModule.controller("BookRegisterCtrl",function($scope, $http, $state,
         'code':/\S{4,9}/,
         'email':/[1-9][0-9]{5,12}@qq\.com/
     }
+    $scope.registerDisabled=true;
     $scope.register=function(){
         if(!$scope.reg.adminname.test($scope.userinfor.adminname)){
             $scope.warning.adminname='请输入合法用户名';
@@ -210,6 +217,9 @@ bookRegisterModule.controller("BookRegisterCtrl",function($scope, $http, $state,
     }
     $scope.hideTip4=function(){
         $scope.warning.tip4=false;
+    }
+    if($scope.userinfor.adminname!=null&&$scope.userinfor.code!=null&&$scope.userinfor.confirm!=null&&$scope.userinfor.email!=null){
+        $scope.registerDisabled=false;
     }
 })
 
